@@ -26,7 +26,7 @@ public class AuthService {
     @Transactional
     public SignupResponse signup(SignupRequest signupRequest) {
 
-        if (userRepository.existsByEmail(signupRequest.getEmail())) {
+        if (userRepository.existsByEmail(signupRequest.getEmail())) {   //원래 userRole 아래에 위치했었는데 여기로 옮겨서 조건 아닐때 밑의 코드 실행 안되게 하기!
             throw new InvalidRequestException("이미 존재하는 이메일입니다.");
         }
 
